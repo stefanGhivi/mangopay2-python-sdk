@@ -9,6 +9,6 @@ script: nosetests
 before_install:
 - openssl aes-256-cbc -K $encrypted_774a281ca2e8_key -iv $encrypted_774a281ca2e8_iv
   -in .pypirc.enc -out .pypirc -d
-- chmod +x ./initiate-publish.sh
+- chmod +x initiate-publish.sh
 after_success:
-- "./initiate-publish.sh"
+- "initiate-publish.sh"
