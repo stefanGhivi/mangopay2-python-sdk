@@ -6,13 +6,9 @@ install:
 - pip install -r requirements/base.txt
 - pip install -r requirements/development.txt
 script: nosetests
-deploy:
-  provider: pypi
-  user:
-    secure: fZZgHRiopsvUgzoBRslRT92sq2UUq5BWjDzXZFLxHHw3uWKFrIK3QtjqltnbUIkSx7L0T5MQKaPND9IYem1sfQaI/l/lSJOkpYoxQqJCqiyl+g6XPtXRlNxQ12cVqB2H0eVm+b/Y7Z9Vm5xDi26LMz7rCrEnfi6clTKTVADNuEOh84oniFyuItInSgtLD0H0gIHgRqTDZJHV15k4Yh9HfbH2b20GfHpnlY3PzUJ+WyNhp4TzwpATZ88iYokiXrpE/uSV/aXUCJ2MSLX/BhfgU7N7oVCTZY505/xniPo4mLOP3qGjWAbY2OzIZZ1keBYJf9AngJT4QngIBNDxgCekwBt39EWK1NB34kqqDeLonVZuuDdOE7FyRDdCu1jJ454sJN4r0f7zWrM0lXZN7YDC1Je4Vt7NgSkYDlI3KSNnHAzPL3X02QGN83HCXM85++62rQUCQxZFoso9pwGMzzEKs64DSVwTK6ZC3xjIbt1b4vHI5OvBxVOeCkGHoPbo/rdYuFYCJcLHJFi6bKjAX6/nw1dSDTmPZJxFg3r6Yvj5RTsDwNfU2q97IU/4X84Uy4HkdKL0ONf8fGs7fRySC/GvZMyN9gPM8jo8z07E0eaA9uKYjVy92I4Zda2NMSpUAGK6Cw2CUcS/JYV1pb+V7jedfz8lB3AWbE9ZvFAT3LR68O4=
-  password:
-    secure: aroRgan1uY5gwOLp7nwRgY/+s9XYMU+XA+t7zLVDvpG2AHm9G0h7vFyi+RU8m7/tu48rPGEviY2MMfiOwlita15NdnYaTxaMeteinRSfzwvJgr+wWjMCO8g2m5Qoi9ks1P6LaETB+cYZAYj6LN8nbPbHq8p4Sf7nSk3IlX1mySn/Ka4e8743HyRGfQgHjf6A6n1ENLiyyYreFZy+c+sukGyc3gFotElUFknyC0Ioss86mTeFjrhkFL5VzNUZIM2aRFtJmkBHG03d2oPvMCyu3paZRn5AV+AkH7nA2B/aoWqcINDMA7Z1z3kFwqUiLlfoQyBR7h8GCBHfkjta0TRFog3EUTrKrXvnMk2Ih1qQPT5mAmzF8Goq+brO9Ek1ShZ2gTgjcpJ0PdyIBVP1+eQDmZYrE8myS7QsoPnsw9jO+Q/mbB8nY1vJ8UbwblmR0TZiURv3JhALGGpelGf86sYcmwaLK3MCvtia3FrYsqtH28e/xjXFw+J4+aFquONrLxSWgUVn0aYBHjO0VXakfIh0qz9+RRqxnei3m822TRtKVEHBi/msvf9GiP0jFPnKvx7mLza0hIZIpeWTtOFSsgN7Wy/k7DEYe+Mw3jdsHDjKfpHXnc31IRRNfsO3pGHnVp1G+zBJHlZ9+oMvMDFoL4USaOaPK/Eer4aMGiYa/S39n1w=
-  on:
-    repo: stefanGhivi/mangopay2-python-sdk
-    branch: release
-    
+before_install:
+- chmod +x ./initiate-publish.sh
+- openssl aes-256-cbc -K $encrypted_774a281ca2e8_key -iv $encrypted_774a281ca2e8_iv
+  -in .pypirc.enc -out .pypirc -d
+after_success:
+  -./initiate-publish.sh
