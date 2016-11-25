@@ -4,6 +4,7 @@ include README.md
 include DESCRIPTION.md
 include Makefile
 include .pypirc
+include setup.cfg
 
 recursive-include mangopay *
 recursive-include tests *
