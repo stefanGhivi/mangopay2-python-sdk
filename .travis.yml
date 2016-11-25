@@ -16,7 +16,7 @@ deploy:
     repo: stefanGhivi/mangopay2-python-sdk
     branch: release
     tags: false
-    condition: condition: $TRAVIS_PYTHON_VERSION = "3.4"
+    condition: $TRAVIS_PYTHON_VERSION = "3.4"
 env:
   global:
   - secure: Xj0BjJAhU69lkrOOkspFD6KzGKiq9hcwoh5K8wX1RVeimr5lZR75Y26GRBY9RBGh2Sjbn2HhdwSD90m9/MXuv7wRs4JGTy7KZtpTOhZZy9SPbyTlEagEVGOQ+VtjI5we8VLgekQPcwCGesv0UD4ZoB3cFOj+UpeueyHaq57V+hvh84OgEqbdRYoT9cpK0Y1t0E1t0QG1aF8mpbhj2TzUfvlv8nEjR0jEsIe8n+S4XKNlfmhonB3rBzpLGM5iIiM//fFYSLcQ27U6fnCLp/0ICQJdALaXOsaI7arHRBAEFJW21c4dQMzzm5W3wyiTLRisH2Wup2SQ7sOg3NBLL/OhcMqP4JgJ1k7ToOcOf1CJAybzRmWrbobDNR4mx/N0ZYIQQv5FGRwI3ro99t8x5Y7ABjWTXrS0DxidNh6lbGSWTvGMnLHfzBXeDqNVZcfQtagIeCYTMlHpYbTZxndcNQi15qyakBkyTzrBNrcccZTU5tIqsH6rhLJJSmWGY0Nkr6nc7u2dEdla4x9jWVOpjYpeI278/3+BKQQIwc0ICTSZPLd1YDK/ttrjow+jWsdgbmbK2EVVblO+mx+/6Bpaa6Rd4waLSIo+5YL+YcrhviJQV6uhn6IHWlV52bu6GaIewXg37Y+swVpJYMlQ+ClBa8LE5Ya796nlfiHIo9+b2Q7m5N0=
