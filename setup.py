@@ -3,7 +3,7 @@ from codecs import open
 from os import path
 
 setup(
-    name='mangopaysdk',
+    name='mangopaysdkTest1',
     version='3.0.0',
     description='A client library written in python to work with mangopay v2 api',
     long_description='This SDK is a client library for interacting with the Mangopay API.',
