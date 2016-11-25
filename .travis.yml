@@ -1,7 +1,7 @@
 language: python
 python:
-- '2.7'
 - '3.4'
+- '2.7'
 install:
 - pip install -r requirements/base.txt
 - pip install -r requirements/development.txt
@@ -10,15 +10,13 @@ deploy:
   provider: pypi
   server: https://testpypi.python.org/pypi
   user: stefan.ghiviriga
-  password:
-    secure: "ufGl7e88Otl//dkKU/hx8YoEh21l+NPcDuVZCR6JVYP3U+8bgWc8vsTI1DdstBSeSKd1hw5Dkj+pWypAaWn6QkUMw4hXpOYVvdMB4m9xPWM9prqd2ein6Sw9JNU8jyWZQVz4Mn0x2Nt2epwT0uAAsZmN+8xoZ8+k9lflViBJd0X
-    13G5oYs1Ni76X069ums9RzlbyRZ85SvhxSx88ozUxv9ji095YKCfN9jMvG2xamkOGnXOyDKmW/2QcrgrLBtN8Eqw3z00F7zVUp3QHKjoxzR4Ohk+W94lATzg3me5xu6dmvqZtDAri1G2Tpg5XqSokznjgc3tabV7i3Ob9hWcCdSwpAcaSDUeUO
-    1eKfVvM54emm+X32bb43wwpqdAu6ucMXyspdpkaBi+lZjCMyVUMnLhxCQt//KG6wn4yflQ6bGavJ3lsNJjyg3Vu58LT1Frmo8JDesdw+0GBSlemw5ZWQ+iAVRlPdnLe4kLzmzHqHP2tUURd+a90Au/TOHchoUuuddlaFV1//vTkYuA62h0Bt+T
-    4RC3xNukkoXvighA+m4087vO7MU6P1STucdiAFd3YP0qD0wIkE69/50dgbyxuDVTXxV959qBZx2cigQmm/4K3v/CzeHO1ZArc4UK9HWKJ3eBZr1jfz89PeLuPge5PUQEmJqm9tUefcPnn51WPe4Q="
+  password: $pypi_password
   on:
     distributions: sdist bdist_wheel
     repo: stefanGhivi/mangopay2-python-sdk
     branch: release
     tags: false
     condition: $TRAVIS_PYTHON_VERSION = "3.4"
-
+env:
+  global:
+    secure: hkCmtc2SPBaniPodsVZg4dGl2v3c+MYOlRCXiOw5Sox6FrbkaNZkTuehP4Ld6W4gj9tgKWUYsALVgGqjsXPtuV10AKFX2T9o5X8PUrd1b8CkeS3gvVEgcAPgbLOaufTAlf66GLiaVHowgZ3aalLfBJJkXr0QQRPtRqgPGbPJpHdU+WwryELdO31RFa74JGIngAnfudapwGaqfgyzzajhrKNcL8sdhA9DIL0Ny29INfCe3QKg8283dXnKOIrP5FMyxZGtl8FiSdyIdGviF8tXwQB7gCFvXUUHX/qoTMF3rIzkZFqpR9iAAzbI3CWxkJYa876GO/KlHDm6u5PsF9DWgfMPVO1axaKBflD4gqUJIAmLiFYBLmv9w2ll2pHanA3Y6RPPWlHlB16ogBbZg8ICqpR3NnCAvO9ClWmmqRnXUpX27id1zlwPdmquVk3s7lL7JVpPa9XC7pBy0kq1g2Ci00IZRNp4fTugv0quFJKN07zUHZ/flYGKDL2489MTYCW63P7Ec0FIhT+5Vgu/GDEImIGNo7Dbu1b8IZWmrINP5VudmFWrqk6eHAPxRb9Qfvj4CXgw5bmrZW1DNtuzoxejWksaOc1mnMyYV/kRb2/lH/EMTua5hva2NQAv661WMu0oNPHEjfAEN2rimOhQKHpLBHXMcYwPOyq3RxN9Y8VUBPk=
