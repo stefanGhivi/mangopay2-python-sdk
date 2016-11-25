@@ -7,8 +7,16 @@ install:
 - pip install -r requirements/development.txt
 script: nosetests
 before_install:
-- chmod +x ./initiate-publish.sh
 - openssl aes-256-cbc -K $encrypted_774a281ca2e8_key -iv $encrypted_774a281ca2e8_iv
   -in .pypirc.enc -out .pypirc -d
-after_success:
-- "./initiate-publish.sh"
+
+deploy:
+  server: https://testpypi.python.org/pypi
+  user:
+    secure: n/10IMAl1zEvRZ3LkuKrhyTGOodEGBcoOrRmqIFj65MnU5iLJSlBK2aZd0BvTp2XTsdLrf9YwQg3JyuFaK4zoIo4rSSwrAxSoEhuvEr+WqLROAfRDidKxct6IIgncrD7GTDS8HLDsmDzSO3Gn+U0RVPSxOm8GU7ZDqLxFsOyH3LeQFga7hnCfHvBgerK8p21Pf9HD4xR3T41feDRzjxacX57fSWvIx/6rCQHALxVMeK7HIVTORTZemjoU4cOHu/uWCGtkQwsOLGaLNbe3beE3vllmxlM5eJUBidw7D1J/ZoP4W5D2lAK2atECVru0en68LEfVlZKkPY9Q/Xxx0JHJetXRRfi2DsGyOMr+xm75Nw4Cgx5DEMSyX9HbYt/VfMvOCMdzFwi0gKLB56rQf2W/uWDguieHDw8HlHGnf7oj5Yn2UaMC1M7INSATcTomFIuzlF1w9D5jOqZh0e01z7Tbn6dF9lCao3cegw8BHLvg61mkCcZcW9L7tdGqNkp9/ncv4zfv4FxRaGlXAzzPkErl2tnhTa/jOiQyMt/dmojWGtCpPmVMdgcJ06sWCTozSDEc+hXzq0MLqkggY+rOVl25/hr/UWl4Ty022n296ZfAPzQolHVw8PiS74MH8ycqAxD4fuklA1qYrF1VHyTrFnoMj7hh4Zcc+Oc0e/usAEU2sA=
+  password:
+    secure: r3qPig30XgZorPW/Pq6o9RLRl8Pm0CFpL8nI4Y2sB8EQx3XLI5+OVtbSTRAPO55dtG3BD3rUhWn7azaS3oAL7DNA0tHOtjNzv4IDxU7lxFsTrrHzLPY7Fu+6jlSxWOl8Gk08TOOFHHLu+0sggNoakkwsOEvCEIvvmir0oZrpjO0vWKu/caefB34mLu63e0PyFf58BrOpLJJfd0Cw/aVZaDC6yJ4EmmwkSSXyG9WzibA3Nm3bWUFZEuc3eQ9vuvX0vbAjsUqE2K7fadMm6cGbha7jlUvBg9TBMn9PCnk2yHekN+p0cBPa5c3hncfTzzSrtut/d01S3JSCJESACkLi0T4fWsOysf7dE5ixkEEoVgjvAbabkXm2rOK+AV9YThSBGXZYJJ/mXFrb0+AQqjL+jAMBAk/un/ZofUPvdS4Qv5+O3Kt3maTyMQswiQHagem2Dc1yf4nvU4nxjGkttFKobAAh3FQz8pt+Vvzsq7XlDoscoUOQ7cLrR0nh4Utp5EVc8I5lf9RllXKpwhHt3LH8WaKqugVvUR3prYFX0japwKGv+wI7uuJ/lH3ckFUhL/UTbkYxziMGKxzY98jGX2wglX6NQy73l/bJSIGl5L4BiWfIJe6V/pTlJQLnafb1VQO63BxtNPte6xqe+VHyrQMZcZQcsTWm7RCSy/H6zBAEB/g=
+  on:
+    distributions: sdist bdist_wheel
+    repo: stefanGhivi/mangopay2-python-sdk
+    branch: release
